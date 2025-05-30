@@ -104,7 +104,7 @@ Tested with:
 - Android
 - iOS   
 
-(Other targets coming soon)
+(Other targets are available but not tested yet)
 
 ---
 
