@@ -102,7 +102,7 @@ All parameters are optional except message. For more example usages, see [AppVie
 ## 🌍 Compose Multiplatform Ready     
 Tested with:
 - Android
-- iOS
+- iOS   
 (Other targets coming soon)
 
 ---
