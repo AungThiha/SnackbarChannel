@@ -94,12 +94,12 @@ mavenPublishing {
     coordinates(
         groupId = "io.github.aungthiha",
         artifactId = "snackbar-channel",
-        version = "1.0.0"
+        version = "1.0.1"
     )
 
     pom {
         name.set("SnackbarChannel")
-        description.set("A lightweight, lifecycle-safe snackbar event dispatcher for Jetpack Compose - with multiplatform support.")
+        description.set("A lightweight, lifecycle-safe snackbar event dispatcher for Compose Multiplatform.")
         url.set("https://github.com/AungThiha/SnackbarChannel")
 
         licenses {
