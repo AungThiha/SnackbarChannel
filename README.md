@@ -36,7 +36,7 @@ It’s a focused solution that keeps your snackbar logic clean, lifecycle-aware,
 
 ```kotlin
 commonMain.dependencies {
-    implementation("io.github.aungthiha:snackbar-channel:1.0.0")
+    implementation("io.github.aungthiha:snackbar-channel:1.0.1")
 }
 ```
 
