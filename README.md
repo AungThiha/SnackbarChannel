@@ -1,6 +1,6 @@
 # 🔔 SnackbarChannel
 
-A lightweight, lifecycle-safe snackbar event dispatcher for Jetpack Compose - with multiplatform support.
+A lightweight, lifecycle-safe snackbar event dispatcher for Compose Multiplatform.
 
 ## 🔍 Why use SnackbarChannel?
 
@@ -34,8 +34,11 @@ It’s a focused solution that keeps your snackbar logic clean, lifecycle-aware,
 
 ## 📦 Installation
 
-> Coming soon to Maven Central or GitHub Packages  
-_For now, copy the files into your project or link as a module._
+```kotlin
+commonMain.dependencies {
+    implementation("io.github.aungthiha:snackbar-channel:1.0.0")
+}
+```
 
 ---
 
