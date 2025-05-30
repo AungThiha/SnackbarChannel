@@ -1,3 +1,4 @@
+import com.vanniktech.maven.publish.SonatypeHost
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
@@ -8,6 +9,7 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
+    id("com.vanniktech.maven.publish") version "0.32.0"
 }
 
 kotlin {
@@ -80,6 +82,45 @@ android {
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
+        }
+    }
+}
+
+mavenPublishing {
+    publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
+
+    signAllPublications()
+
+    coordinates(
+        groupId = "io.github.aungthiha",
+        artifactId = "snackbar-channel",
+        version = "1.0.0"
+    )
+
+    pom {
+        name.set("SnackbarChannel")
+        description.set("A lightweight, lifecycle-safe snackbar event dispatcher for Jetpack Compose - with multiplatform support.")
+        url.set("https://github.com/AungThiha/SnackbarChannel")
+
+        licenses {
+            license {
+                name.set("MIT License")
+                url.set("https://github.com/AungThiha/SnackbarChannel/blob/main/LICENSE")
+            }
+        }
+
+        developers {
+            developer {
+                id.set("AungThiha")
+                name.set("Aung Thiha")
+                email.set("mr.aungthiha@gmail.com")
+            }
+        }
+
+        scm {
+            connection.set("scm:git:github.com/AungThiha/SnackbarChannel.git")
+            developerConnection.set("scm:git:ssh://github.com/AungThiha/SnackbarChannel.git")
+            url.set("https://github.com/AungThiha/SnackbarChannel")
         }
     }
 }
