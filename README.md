@@ -1,8 +1,8 @@
-# 🔔 SnackbarChannel
+# SnackbarChannel
 
 A lightweight, lifecycle-safe snackbar event dispatcher for Compose Multiplatform.
 
-## 🔍 Why use SnackbarChannel?
+## Why use SnackbarChannel?
 
 `SnackbarChannel` addresses the common pitfalls of using `StateFlow`, `SharedFlow`, or even `StateFlow<List<Event>>`.
 
@@ -21,18 +21,18 @@ It’s a focused solution that keeps your snackbar logic clean, lifecycle-aware,
 
 ---
 
-## 🚀 Features
+## Features
 
-- ✅ One-liner API for triggering snackbars from your `ViewModel`
-- ✅ No more missed or duplicated snackbars
-- ✅ Lifecycle-aware: events are only collected when the UI is active
-- ✅ Works seamlessly with `SnackbarHostState.showSnackbar(...)`
-- ✅ No brittle base classes - favors composition over inheritance using Kotlin delegation
-- ✅ Compose Multiplatform support
+- One-liner API for triggering snackbars from your `ViewModel`
+- No more missed or duplicated snackbars
+- Lifecycle-aware: events are only collected when the UI is active
+- Works seamlessly with `SnackbarHostState.showSnackbar(...)`
+- No brittle base classes - favors composition over inheritance using Kotlin delegation
+- Compose Multiplatform support
 
 ---
 
-## 📦 Installation
+## Installation
 
 ```kotlin
 commonMain.dependencies {
@@ -42,7 +42,7 @@ commonMain.dependencies {
 
 ---
 
-## ⚙️ Setup
+## Setup
 
 ### 1. Add `SnackbarChannel` to your `ViewModel`
 
@@ -86,7 +86,7 @@ fun MyScreen(viewModel: MyViewModel = viewModel()) {
 
 ---
 
-## 🧩 API Overview
+## API Overview
 showSnackBar(...) from your ViewModel
 ```kotlin
 showSnackBar(
@@ -102,7 +102,7 @@ All parameters are optional except message. For more example usages, see [AppVie
 
 ---
 
-## 🌍 Compose Multiplatform Ready     
+## Compose Multiplatform Ready     
 Tested with:
 - Android
 - iOS   
@@ -111,10 +111,10 @@ Tested with:
 
 ---
 
-## ❤️ Contributing      
+## Contributing      
 PRs and feedback welcome!
 
 ---
 
-## 📄 License     
+## License     
 MIT
