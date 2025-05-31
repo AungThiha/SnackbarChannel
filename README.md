@@ -29,6 +29,7 @@ It’s a focused solution that keeps your snackbar logic clean, lifecycle-aware,
 - Works seamlessly with `SnackbarHostState.showSnackbar(...)`
 - No brittle base classes - favors composition over inheritance using Kotlin delegation
 - Compose Multiplatform support
+- Fully unit-testable
 
 ---
 
@@ -132,6 +133,29 @@ showSnackBar(
 All parameters are optional except the message.   
 For more example usages, see [AppViewModel.kt](./composeApp/src/commonMain/kotlin/io/github/aungthiha/snackbar/demo/AppViewModel.kt)
 
+---
+
+## Unit Testing
+You can test snackbar emissions using `runTest` and collecting from `snackbarFlow`.
+
+```kotlin
+class MyViewModelTest {
+
+    private val viewModel = MyViewModel()
+
+    @Test
+    fun snackbar_is_emitted() = runTest {
+        viewModel.showSimpleSnackbar()
+
+        val snackbarModel = viewModel.snackbarFlow.first()
+
+        assertEquals(
+            SnackbarString(Res.string.hello_world),
+            snackbarModel.message
+        )
+    }
+}
+```
 ---
 
 ## Compose Multiplatform Ready
