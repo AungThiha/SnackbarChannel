@@ -36,7 +36,7 @@ It’s a focused solution that keeps your snackbar logic clean, lifecycle-aware,
 
 ```kotlin
 commonMain.dependencies {
-    implementation("io.github.aungthiha:snackbar-channel:1.0.2")
+    implementation("io.github.aungthiha:snackbar-channel:1.0.3")
 }
 ```
 
@@ -45,19 +45,26 @@ commonMain.dependencies {
 ## Setup
 
 ### 1. Add `SnackbarChannel` to your `ViewModel`
-
+By default, SnackbarChannel uses `Channel.UNLIMITED` and `BufferOverflow.SUSPEND` to ensure no snackbar events are dropped.
 ```kotlin
 import io.github.aungthiha.snackbar.SnackbarChannel
 import io.github.aungthiha.snackbar.SnackbarChannelOwner
 
 class MyViewModel(
-    private val snackbarChannel: SnackbarChannel = SnackbarChannel()
+    private val snackbarChannel: SnackbarChannel = SnackbarChannel() // Default: Channel.UNLIMITED
 ) : ViewModel(), SnackbarChannelOwner by snackbarChannel {
 
     fun showSimpleSnackbar() {
         showSnackBar(message = Res.string.hello_world)
     }
 }
+```
+While the defaults are recommended for most use cases, both the channel capacity and `onBufferOverflow` strategy are configurable:
+```kotlin
+SnackbarChannel(
+    capacity = Channel.RENDEZVOUS, // Or Channel.BUFFERED, etc.
+    onBufferOverflow = BufferOverflow.DROP_OLDEST, // Or BufferOverflow.DROP_LATEST
+) 
 ```
 
 ### 2. Observe snackbars in your Composable
@@ -127,19 +134,19 @@ For more example usages, see [AppViewModel.kt](./composeApp/src/commonMain/kotli
 
 ---
 
-## Compose Multiplatform Ready     
+## Compose Multiplatform Ready
 Tested with:
 - Android
-- iOS   
+- iOS
 
 (Other targets are available but not tested yet)
 
 ---
 
-## Contributing      
+## Contributing
 PRs and feedback welcome!
 
 ---
 
-## License     
+## License
 MIT
