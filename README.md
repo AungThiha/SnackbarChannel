@@ -36,7 +36,7 @@ It’s a focused solution that keeps your snackbar logic clean, lifecycle-aware,
 
 ```kotlin
 commonMain.dependencies {
-    implementation("io.github.aungthiha:snackbar-channel:1.0.1")
+    implementation("io.github.aungthiha:snackbar-channel:1.0.2")
 }
 ```
 
@@ -87,18 +87,43 @@ fun MyScreen(viewModel: MyViewModel = viewModel()) {
 ---
 
 ## API Overview
-showSnackBar(...) from your ViewModel
+Use showSnackBar(...) from your ViewModel. You can pass string resources, string literals, or even mix both using SnackbarString.
 ```kotlin
+// All parameters
 showSnackBar(
-    message = Res.string.hello_world,
-    actionLabel = Res.string.ok,
+    message = Res.string.hello_world, // can be either StringResource, String or SnackbarString
+    actionLabel = SnackbarString("ok"), // can be either StringResource, String or SnackbarString
     withDismissAction = true,
     duration = SnackbarDuration.Indefinite,
     onActionPerform = { /* handle action */ },
     onDismiss = { /* handle dismiss */ }
 )
+
+// Using a string resource
+showSnackBar(
+    message = Res.string.hello_world,
+    actionLabel = Res.string.ok
+)
+
+// Using a raw string (e.g., from backend or dynamic input)
+showSnackBar(
+    message = "Something went wrong!",
+    actionLabel = "Retry"
+)
+
+// Mixing types with SnackbarString
+showSnackBar(
+    message = SnackbarString("မင်္ဂလာပါ"),
+    actionLabel = SnackbarString(Res.string.ok)
+)
+
+showSnackBar(
+    message = SnackbarString(Res.string.hello_world),
+    actionLabel = SnackbarString("ok")
+)
 ```
-All parameters are optional except message. For more example usages, see [AppViewModel.kt](./composeApp/src/commonMain/kotlin/io/github/aungthiha/snackbar/demo/AppViewModel.kt)
+All parameters are optional except the message.   
+For more example usages, see [AppViewModel.kt](./composeApp/src/commonMain/kotlin/io/github/aungthiha/snackbar/demo/AppViewModel.kt)
 
 ---
 
