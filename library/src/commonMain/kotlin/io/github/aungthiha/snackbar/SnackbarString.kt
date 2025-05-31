@@ -17,6 +17,18 @@ suspend fun SnackbarString.unpackString(): String = when (this) {
     is SnackbarString.Resource -> getString(value)
 }
 
+/**
+ * Creates a [SnackbarString.Literal] from a raw [String].
+ *
+ * Allows developers to instantiate either a [Literal] or [Resource] using the same `SnackbarString(...)` function name,
+ * improving discoverability and reducing cognitive overhead.
+ */
 fun SnackbarString(value: String) = SnackbarString.Literal(value)
 
+/**
+ * Creates a [SnackbarString.Resource] from a [StringResource].
+ *
+ * Allows developers to instantiate either a [Literal] or [Resource] using the same `SnackbarString(...)` function name,
+ * improving discoverability and reducing cognitive overhead.
+ */
 fun SnackbarString(value: StringResource) = SnackbarString.Resource(value)
