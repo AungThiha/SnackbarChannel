@@ -7,6 +7,7 @@ import demo.composeapp.generated.resources.hello_from_SnackbarChannel
 import demo.composeapp.generated.resources.ok
 import io.github.aungthiha.snackbar.SnackbarChannel
 import io.github.aungthiha.snackbar.SnackbarChannelOwner
+import io.github.aungthiha.snackbar.SnackbarString
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
@@ -21,9 +22,22 @@ class AppViewModel(
     private val mutableOnDismissedCalled: MutableStateFlow<Int> = MutableStateFlow(0)
     val onDismissedCalled: StateFlow<Int> = mutableOnDismissedCalled
 
-    fun simpleSnackbar() {
+    fun snackbarWithStringResource() {
         showSnackBar(
             message = Res.string.hello_from_SnackbarChannel
+        )
+    }
+
+    fun snackbarWithStringLiteral() {
+        showSnackBar(
+            message = "hey"
+        )
+    }
+
+    fun snackbarWithMixedStringTypes() {
+        showSnackBar(
+            message = SnackbarString("မင်္ဂလာပါ"),
+            actionLabel = SnackbarString(Res.string.ok),
         )
     }
 

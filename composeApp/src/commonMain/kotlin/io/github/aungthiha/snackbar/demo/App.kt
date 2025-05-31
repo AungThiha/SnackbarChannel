@@ -6,6 +6,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeContentPadding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -56,7 +58,8 @@ fun AppScreen(
     ) { paddingValues ->
         Column(
             modifier = Modifier
-                .padding(paddingValues),
+                .padding(paddingValues)
+                .verticalScroll(rememberScrollState()),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
 
@@ -71,13 +74,25 @@ fun AppScreen(
             Text("Number of times onDismiss called: $onDismissCalled")
 
             Button(
-                onClick = { viewModel.simpleSnackbar() },
+                onClick = { viewModel.snackbarWithStringResource() },
                 modifier = Modifier.padding(16.dp)
             ) {
-                Text("Show simple Snackbar")
+                Text("Snackbar with StringResource")
             }
 
-            Spacer(modifier = Modifier.height(16.dp))
+            Button(
+                onClick = { viewModel.snackbarWithStringLiteral() },
+                modifier = Modifier.padding(16.dp)
+            ) {
+                Text("Snackbar with String Literal")
+            }
+
+            Button(
+                onClick = { viewModel.snackbarWithMixedStringTypes() },
+                modifier = Modifier.padding(16.dp)
+            ) {
+                Text("Snackbar with mixed String types")
+            }
 
             Button(
                 onClick = { viewModel.snackbarWithAction() },
@@ -86,16 +101,12 @@ fun AppScreen(
                 Text("Show Snackbar with action")
             }
 
-            Spacer(modifier = Modifier.height(16.dp))
-
             Button(
                 onClick = { viewModel.snackbarWithDismissAction() },
                 modifier = Modifier.padding(16.dp)
             ) {
                 Text("Show Snackbar with dismiss action")
             }
-
-            Spacer(modifier = Modifier.height(16.dp))
 
             Button(
                 onClick = { viewModel.snackbarWithOnActionPerformCallback() },
@@ -104,16 +115,12 @@ fun AppScreen(
                 Text("Show Snackbar with onActionPerform callback")
             }
 
-            Spacer(modifier = Modifier.height(16.dp))
-
             Button(
                 onClick = { viewModel.snackbarWithOnDismissCallback() },
                 modifier = Modifier.padding(16.dp)
             ) {
                 Text("Show Snackbar with onDismiss callback")
             }
-
-            Spacer(modifier = Modifier.height(16.dp))
 
             Button(
                 onClick = { viewModel.indefiniteSnackbar() },

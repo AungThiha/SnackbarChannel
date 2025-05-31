@@ -1,11 +1,10 @@
 package io.github.aungthiha.snackbar
 
 import androidx.compose.material3.SnackbarDuration
-import org.jetbrains.compose.resources.StringResource
 
 data class SnackbarModel(
-    val message: StringResource,
-    val actionLabel: StringResource?,
+    val message: SnackbarString,
+    val actionLabel: SnackbarString?,
     val withDismissAction: Boolean,
     val duration: SnackbarDuration,
     val onActionPerform: () -> Unit,

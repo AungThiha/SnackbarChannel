@@ -20,6 +20,42 @@ class SnackbarChannel : SnackbarChannelOwner {
         onDismiss: () -> Unit,
     ): ChannelResult<Unit> = snackbarMessages.trySend(
         SnackbarModel(
+            message = SnackbarString.Resource(message),
+            actionLabel = actionLabel?.let(SnackbarString::Resource),
+            withDismissAction = withDismissAction,
+            duration = duration,
+            onActionPerform = onActionPerform,
+            onDismiss = onDismiss,
+        )
+    )
+
+    override fun showSnackBar(
+        message: String,
+        actionLabel: String?,
+        withDismissAction: Boolean,
+        duration: SnackbarDuration,
+        onActionPerform: () -> Unit,
+        onDismiss: () -> Unit
+    ): ChannelResult<Unit> = snackbarMessages.trySend(
+        SnackbarModel(
+            message = SnackbarString.Literal(message),
+            actionLabel = actionLabel?.let(SnackbarString::Literal),
+            withDismissAction = withDismissAction,
+            duration = duration,
+            onActionPerform = onActionPerform,
+            onDismiss = onDismiss,
+        )
+    )
+
+    override fun showSnackBar(
+        message: SnackbarString,
+        actionLabel: SnackbarString?,
+        withDismissAction: Boolean,
+        duration: SnackbarDuration,
+        onActionPerform: () -> Unit,
+        onDismiss: () -> Unit
+    ): ChannelResult<Unit> = snackbarMessages.trySend(
+        SnackbarModel(
             message = message,
             actionLabel = actionLabel,
             withDismissAction = withDismissAction,
