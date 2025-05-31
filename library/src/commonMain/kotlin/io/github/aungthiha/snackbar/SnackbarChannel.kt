@@ -6,9 +6,14 @@ import kotlinx.coroutines.channels.ChannelResult
 import kotlinx.coroutines.flow.receiveAsFlow
 import org.jetbrains.compose.resources.StringResource
 
-class SnackbarChannel : SnackbarChannelOwner {
+/**
+ * @param capacity - either a positive channel capacity or one of the constants defined in Channel. Factory.
+ * */
+class SnackbarChannel(
+    capacity: Int = Channel.UNLIMITED
+) : SnackbarChannelOwner {
 
-    private val snackbarMessages: Channel<SnackbarModel> = Channel(Channel.UNLIMITED)
+    private val snackbarMessages: Channel<SnackbarModel> = Channel(capacity)
     override val snackbarFlow = snackbarMessages.receiveAsFlow()
 
     override fun showSnackBar(

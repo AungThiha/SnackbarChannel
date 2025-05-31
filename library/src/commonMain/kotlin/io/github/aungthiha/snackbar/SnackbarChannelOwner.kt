@@ -9,9 +9,6 @@ interface SnackbarChannelOwner {
     val snackbarFlow: Flow<SnackbarModel>
 
     /**
-     * Warning: if you're using this with [SnackbarChannel] and if you emit too many SnackbarModel, it can lead to OutOfMemoryError
-     * That said, in real-world applications, it's impractical to have more than a few Snackbars.
-     *
      * @param message text to be shown in the Snackbar
      * @param actionLabel optional action label to show as button in the Snackbar
      * @param withDismissAction a boolean to show a dismiss action in the Snackbar. This is
@@ -33,9 +30,6 @@ interface SnackbarChannelOwner {
     ): ChannelResult<Unit>
 
     /**
-     * Warning: if you're using this with [SnackbarChannel] and if you emit too many SnackbarModel, it can lead to OutOfMemoryError
-     * That said, in real-world applications, it's impractical to have more than a few Snackbars.
-     *
      * @param message text to be shown in the Snackbar
      * @param actionLabel optional action label to show as button in the Snackbar
      * @param withDismissAction a boolean to show a dismiss action in the Snackbar. This is
@@ -57,9 +51,6 @@ interface SnackbarChannelOwner {
     ): ChannelResult<Unit>
 
     /**
-     * Warning: if you're using this with [SnackbarChannel] and if you emit too many SnackbarModel, it can lead to OutOfMemoryError
-     * That said, in real-world applications, it's impractical to have more than a few Snackbars.
-     *
      * @param message text to be shown in the Snackbar
      * @param actionLabel optional action label to show as button in the Snackbar
      * @param withDismissAction a boolean to show a dismiss action in the Snackbar. This is
