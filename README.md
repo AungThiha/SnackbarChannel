@@ -33,6 +33,7 @@ It’s a focused solution that keeps your snackbar logic clean, lifecycle-aware,
 - Lifecycle-aware: events are only collected when the UI is active
 - Works seamlessly with `SnackbarHostState.showSnackbar(...)`
 - No brittle base classes - favors composition over inheritance using Kotlin delegation
+- Supports all original showSnackbar parameters (action labels, duration, callbacks, etc.)
 - Compose Multiplatform support
 - Fully unit-testable
 
