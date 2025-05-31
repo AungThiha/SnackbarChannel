@@ -1,6 +1,7 @@
 package io.github.aungthiha.snackbar
 
 import androidx.compose.material3.SnackbarDuration
+import kotlinx.coroutines.channels.BufferOverflow
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.channels.ChannelResult
 import kotlinx.coroutines.flow.receiveAsFlow
@@ -8,12 +9,15 @@ import org.jetbrains.compose.resources.StringResource
 
 /**
  * @param capacity - either a positive channel capacity or one of the constants defined in Channel. Factory.
+ * @param onBufferOverflow configures an action on buffer overflow
+ * @throws IllegalArgumentException when [capacity] < -2
  * */
 class SnackbarChannel(
-    capacity: Int = Channel.UNLIMITED
+    capacity: Int = Channel.UNLIMITED,
+    onBufferOverflow: BufferOverflow = BufferOverflow.SUSPEND
 ) : SnackbarChannelOwner {
 
-    private val snackbarMessages: Channel<SnackbarModel> = Channel(capacity)
+    private val snackbarMessages: Channel<SnackbarModel> = Channel(capacity, onBufferOverflow)
     override val snackbarFlow = snackbarMessages.receiveAsFlow()
 
     override fun showSnackBar(
