@@ -7,7 +7,6 @@ import demo.composeapp.generated.resources.hello_from_SnackbarChannel
 import demo.composeapp.generated.resources.ok
 import io.github.aungthiha.snackbar.SnackbarChannel
 import io.github.aungthiha.snackbar.SnackbarChannelOwner
-import io.github.aungthiha.snackbar.SnackbarString
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
@@ -36,8 +35,8 @@ class AppViewModel(
 
     fun snackbarWithMixedStringTypes() {
         showSnackBar(
-            message = SnackbarString("မင်္ဂလာပါ"),
-            actionLabel = SnackbarString(Res.string.ok),
+            message = "မင်္ဂလာပါ",
+            actionLabel = Res.string.ok,
         )
     }
 
