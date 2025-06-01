@@ -1,5 +1,8 @@
 # SnackbarChannel
 
+> ⚠️ **Limitation (and Upcoming Fix)**  
+> Thanks to the community feedback, I learned that this solution can lose the Snackbar if a configuration change happens right after the event is delivered to the collector but before the Snackbar is dismissed. As a result, the Snackbar won't be shown again even if the user hasn't grasped the message yet. Therefore, I'll switch back to `StateFlow<List<Event>>` but will abstract out the details to make it easy for the developers. The update should be available before July.
+
 A lightweight, lifecycle-safe snackbar event dispatcher for Compose Multiplatform that addresses common pitfalls of using SharedFlow and StateFlow.
 
 Got it! Here's the revised version with your preferred phrasing:
