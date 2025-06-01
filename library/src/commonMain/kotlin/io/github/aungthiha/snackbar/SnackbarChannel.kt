@@ -7,17 +7,23 @@ import kotlinx.coroutines.channels.ChannelResult
 import kotlinx.coroutines.flow.receiveAsFlow
 import org.jetbrains.compose.resources.StringResource
 
-/**
- * @param capacity - either a positive channel capacity or one of the constants defined in Channel. Factory.
- * @param onBufferOverflow configures an action on buffer overflow
- * @throws IllegalArgumentException when [capacity] < -2
- * */
 class SnackbarChannel(
-    capacity: Int = Channel.UNLIMITED,
-    onBufferOverflow: BufferOverflow = BufferOverflow.SUSPEND
+    private val snackbarMessages: Channel<SnackbarModel> = Channel(
+        Channel.UNLIMITED,
+        BufferOverflow.SUSPEND
+    )
 ) : SnackbarChannelOwner {
 
-    private val snackbarMessages: Channel<SnackbarModel> = Channel(capacity, onBufferOverflow)
+    /**
+     * @param capacity - either a positive channel capacity or one of the constants defined in Channel. Factory.
+     * @param onBufferOverflow configures an action on buffer overflow
+     * @throws IllegalArgumentException when [capacity] < -2
+     * */
+    constructor(
+        capacity: Int = Channel.UNLIMITED,
+        onBufferOverflow: BufferOverflow = BufferOverflow.SUSPEND
+    ) : this(Channel(capacity, onBufferOverflow))
+
     override val snackbarFlow = snackbarMessages.receiveAsFlow()
 
     override fun showSnackBar(
