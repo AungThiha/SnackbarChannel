@@ -105,8 +105,8 @@ Use showSnackBar(...) from your ViewModel. You can pass string resources, string
 ```kotlin
 // All parameters
 showSnackBar(
-    message = Res.string.hello_world, // can be either StringResource, String or SnackbarString
-    actionLabel = SnackbarString("ok"), // can be either StringResource, String or SnackbarString
+    message = Res.string.hello_world, // can be either StringResource or String
+    actionLabel = "ok", // can be either StringResource or String
     withDismissAction = true,
     duration = SnackbarDuration.Indefinite,
     onActionPerform = { /* handle action */ },
