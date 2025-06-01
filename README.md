@@ -43,7 +43,7 @@ It’s a focused solution that keeps your snackbar logic clean, lifecycle-aware,
 
 ```kotlin
 commonMain.dependencies {
-    implementation("io.github.aungthiha:snackbar-channel:1.0.5")
+    implementation("io.github.aungthiha:snackbar-channel:1.0.6")
 }
 ```
 
@@ -125,15 +125,15 @@ showSnackBar(
     actionLabel = "Retry"
 )
 
-// Mixing types with SnackbarString
+// Mixing string types
 showSnackBar(
-    message = SnackbarString("မင်္ဂလာပါ"),
-    actionLabel = SnackbarString(Res.string.ok)
+    message = "မင်္ဂလာပါ",
+    actionLabel = Res.string.ok
 )
 
 showSnackBar(
-    message = SnackbarString(Res.string.hello_world),
-    actionLabel = SnackbarString("ok")
+    message = Res.string.hello_world,
+    actionLabel = "ok"
 )
 ```
 All parameters are optional except the message.   
