@@ -43,7 +43,7 @@ It’s a focused solution that keeps your snackbar logic clean, lifecycle-aware,
 
 ```kotlin
 commonMain.dependencies {
-    implementation("io.github.aungthiha:snackbar-channel:1.0.6")
+    implementation("io.github.aungthiha:snackbar-channel:1.0.7")
 }
 ```
 
@@ -86,7 +86,7 @@ import io.github.aungthiha.snackbar.showSnackbar
 fun MyScreen(viewModel: MyViewModel = viewModel()) {
     val snackbarHostState = remember { SnackbarHostState() }
 
-    viewModel.snackbarFlow.collectWithLifecycle {
+    viewModel.snackbarFlow.observeWithLifecycle {
         snackbarHostState.showSnackbar(it)
     }
 

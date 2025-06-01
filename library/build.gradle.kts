@@ -92,7 +92,7 @@ mavenPublishing {
     coordinates(
         groupId = "io.github.aungthiha",
         artifactId = "snackbar-channel",
-        version = "1.0.6"
+        version = "1.0.7"
     )
 
     pom {
