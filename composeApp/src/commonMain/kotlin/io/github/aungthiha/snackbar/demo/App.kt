@@ -22,7 +22,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
-import io.github.aungthiha.snackbar.collectWithLifecycle
+import io.github.aungthiha.snackbar.observeWithLifecycle
 import io.github.aungthiha.snackbar.showSnackbar
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
@@ -46,7 +46,7 @@ fun AppScreen(
 ) {
 
     val snackbarHostState = remember { SnackbarHostState() }
-    viewModel.snackbarFlow.collectWithLifecycle {
+    viewModel.snackbarFlow.observeWithLifecycle {
         snackbarHostState.showSnackbar(it)
     }
 
