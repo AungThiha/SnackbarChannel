@@ -5,8 +5,6 @@
 
 A lightweight, lifecycle-safe snackbar event dispatcher for Compose Multiplatform that addresses common pitfalls of using SharedFlow and StateFlow.
 
-Got it! Here's the revised version with your preferred phrasing:
-
 > ⚠️ **Using Jetpack Compose for Android only?**    
 > This library relies on `StringResource` and `getString` from `org.jetbrains.compose.resources`, which are **not supported in pure Android projects**. Please refer to the Android-specific version instead: [AndroidSnackbarChannel](https://github.com/AungThiha/AndroidSnackbarChannel).
 
